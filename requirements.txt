@@ -1,0 +1,7 @@
+openai
+SpeechRecognition
+PyAudio
+pyttsx3
+gTTS
+elevenlabs
+python-dotenv
