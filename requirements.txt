@@ -5,3 +5,7 @@ pyttsx3
 gTTS
 elevenlabs
 python-dotenv
+
+
+
+# brew install portaudio

@@ -59,11 +59,11 @@ VaaniAI/
 *Focus: Setting up a bulletproof development environment and enforcing coding standards.*
 
 - **Tasks:**
-  - [ ] Set up a virtual environment (e.g., `venv` or `conda`).
-  - [ ] Pin dependencies securely in `requirements.txt` to prevent future breaking changes.
-  - [ ] Configure `pyproject.toml` with `black` for formatting and `flake8`, `mypy` for linting/type-checking.
-  - [ ] Implement central logging (`src/utils/logger.py`) to rotate logs, preventing disk overflow and helping with deep debugging.
-  - [ ] Build a robust centralized config loader (`src/core/config.py`) using `python-dotenv` and fallback default values.
+  - [Done] Set up a virtual environment (e.g., `venv` or `conda`).
+  - [Done] Pin dependencies securely in `requirements.txt` to prevent future breaking changes.
+  - [] Configure `pyproject.toml` with `black` for formatting and `flake8`, `mypy` for linting/type-checking.
+  - [] Implement central logging (`src/utils/logger.py`) to rotate logs, preventing disk overflow and helping with deep debugging.
+  - [] Build a robust centralized config loader (`src/core/config.py`) using `python-dotenv` and fallback default values.
 - **Edge Cases Handled:**
   - What if `.env` is missing? (Fallback to defaults or raise a clear, readable error on startup).
   - Dependency conflicts between audio libraries on different OS (Mac vs Windows).
@@ -157,6 +157,3 @@ VaaniAI/
    - *Mitigation:* Implement "Wake Word" functionality (e.g., Porcupine) where the expensive LLM/TTS is only triggered if the user specifically says "Hey Vaani". Include a hard-cap token counter that shuts the agent down if daily limits are breached.
 
 ---
-
-## 🚀 5. Getting Started Today
-Take your time. Start by simply executing **Phase 1**. Ensure your `logger.py` and `config.py` are flawless before you even write a single line of audio code. A strong foundation will make the complex asynchronous logic of Phase 4 and 5 infinitely easier to debug.
