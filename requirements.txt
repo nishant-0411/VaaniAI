@@ -1,11 +1,7 @@
 openai
 SpeechRecognition
-PyAudio
+PyAudio # brew install portaudio
 pyttsx3
 gTTS
 elevenlabs
 python-dotenv
-
-
-
-# brew install portaudio

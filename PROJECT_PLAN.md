@@ -61,9 +61,9 @@ VaaniAI/
 - **Tasks:**
   - [Done] Set up a virtual environment (e.g., `venv` or `conda`).
   - [Done] Pin dependencies securely in `requirements.txt` to prevent future breaking changes.
-  - [] Configure `pyproject.toml` with `black` for formatting and `flake8`, `mypy` for linting/type-checking.
-  - [] Implement central logging (`src/utils/logger.py`) to rotate logs, preventing disk overflow and helping with deep debugging.
-  - [] Build a robust centralized config loader (`src/core/config.py`) using `python-dotenv` and fallback default values.
+  - [Done] Configure `pyproject.toml` with `black` for formatting and `flake8`, `mypy` for linting/type-checking.
+  - [Done] Implement central logging (`src/utils/logger.py`) to rotate logs, preventing disk overflow and helping with deep debugging.
+  - [Done] Build a robust centralized config loader (`src/core/config.py`) using `python-dotenv` and fallback default values.
 - **Edge Cases Handled:**
   - What if `.env` is missing? (Fallback to defaults or raise a clear, readable error on startup).
   - Dependency conflicts between audio libraries on different OS (Mac vs Windows).
