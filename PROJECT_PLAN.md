@@ -72,10 +72,10 @@ VaaniAI/
 *Focus: Capturing clean audio and transcribing it accurately, regardless of environment.*
 
 - **Tasks:**
-  - [ ] Implement microphone enumeration to allow users to select the correct audio input device.
-  - [ ] Integrate background noise cancellation logic (`webrtcvad` or native PyAudio noise gates) to only wake STT on actual speech.
-  - [ ] Integrate local (e.g., Whisper) or cloud-based (e.g., Google/Deepgram) STT.
-  - [ ] Implement streaming audio capture to process chunks of audio for lower latency.
+  - [Done] Implement microphone enumeration to allow users to select the correct audio input device.
+  - [Done] Integrate background noise cancellation logic (`webrtcvad` or native PyAudio noise gates) to only wake STT on actual speech.
+  - [Done] Integrate local (e.g., Whisper) or cloud-based (e.g., Google/Deepgram) STT.
+  - [Done] Implement streaming audio capture to process chunks of audio for lower latency.
 - **Edge Cases Handled:**
   - User's microphone disconnects mid-sentence.
   - Complete silence or high background static.
