@@ -85,7 +85,7 @@ VaaniAI/
 *Focus: Connecting the brain of the agent while managing conversational state.*
 
 - **Tasks:**
-  - [ ] Create `src/intelligence/llm_client.py` using `openai` SDK or `Langchain`.
+  - [Done] Create `src/intelligence/llm_client.py` using `openai` SDK or `Langchain`.
   - [ ] Implement streaming LLM responses (yielding tokens as they generate) to dramatically reduce wait times.
   - [ ] Build `memory.py` to maintain a sliding window of recent conversation history to avoid context limit exceeded errors (Token limit management).
   - [ ] Define system prompts that prevent the AI from generating excessively long, un-speakable text (e.g., formatting lists natively for voice).
