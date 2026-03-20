@@ -6,3 +6,4 @@ gTTS
 elevenlabs
 python-dotenv
 requests
+openai-whisper
