@@ -8,5 +8,5 @@ requests
 simpleaudio
 sounddevice
 gTTS
-pydub
+pydub # brew install ffmpeg
 asyncio

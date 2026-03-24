@@ -48,24 +48,24 @@ def capture_audio_streaming(mic_index=None, chunk_duration=3):
         recogniser.adjust_for_ambient_noise(source, duration=1)
         logger.info(f"Streaming in {chunk_duration}s chunks... (Ctrl+C to stop)")
 
-    while True:
-        try:
-            chunk = recogniser.listen(
-                source,
-                timeout=5,                    
-                phrase_time_limit=chunk_duration  
-            )
-            logger.info("Chunk captured")
-            yield chunk
+        while True:
+            try:
+                chunk = recogniser.listen(
+                    source,
+                    timeout=5,                    
+                    phrase_time_limit=chunk_duration  
+                )
+                logger.info("Chunk captured")
+                yield chunk
 
-        except sr.WaitTimeoutError:
-            logger.debug("No speech detected, still listening...")
-            continue
+            except sr.WaitTimeoutError:
+                logger.debug("No speech detected, still listening...")
+                continue
 
-        except OSError as e:
-            logger.error(f"Microphone disconnected during streaming: {e}")
-            break
+            except OSError as e:
+                logger.error(f"Microphone disconnected during streaming: {e}")
+                break
 
-        except KeyboardInterrupt:
-            logger.info("Streaming stopped")
-            break
+            except KeyboardInterrupt:
+                logger.info("Streaming stopped")
+                break

@@ -4,6 +4,7 @@ from src.intelligence.memory import ConversationMemory
 from src.intelligence.llm_client import LLMClient
 from src.audio.input_audio import capture_audio_streaming
 from src.audio.tts_engine import TTSEngine
+from src.audio.stt_engine import STTEngine
 from src.audio.audio_player import AudioPlayer
 from src.utils.logger import get_logger
 
@@ -24,6 +25,7 @@ class VoiceAssistant:
             self.llm = LLMClient()
 
         self.tts = TTSEngine()
+        self.stt = STTEngine()
         self.audio_player = AudioPlayer()
         self.audio_player.start()
 
@@ -52,10 +54,13 @@ class VoiceAssistant:
                     for chunk in capture_audio_streaming():
                         print("chunk:", chunk)
                         if chunk:
-                            user_input += chunk
-                        if len(user_input) > 0:
+                            transcribed_text = self.stt.transcribe(chunk)
+                            if transcribed_text:
+                                user_input += transcribed_text + " "
+                        if len(user_input.strip()) > 0:
                             break
-                except Exception:
+                except Exception as e:
+                    logger.error(f"Audio capture failed: {e}")
                     user_input = input("You: ")
 
                 if not user_input or not user_input.strip():
