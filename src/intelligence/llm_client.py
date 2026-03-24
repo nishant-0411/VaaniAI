@@ -7,7 +7,7 @@ from src.intelligence.memory import ConversationMemory
 logger = get_logger(__name__)
 
 class LLMClient:
-    def __init__(self):
+    def __init__(self, memory = None):
         self.url = "http://localhost:11434/api/generate"
         self.model = "phi3"
         self.memory = ConversationMemory(max_messages=8)

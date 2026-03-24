@@ -9,3 +9,4 @@ simpleaudio
 sounddevice
 gTTS
 pydub
+asyncio

@@ -8,34 +8,59 @@ class AudioPlayer:
     def __init__(self):
         self.audio_queue = queue.Queue()
         self.stop_flag = False
+        self.running = True
         self.current_play = None
+        self.thread = None
 
     def start(self):
-        threading.Thread(target=self._play_loop, daemon=True).start()
+        self.thread = threading.Thread(target=self._play_loop, daemon=True)
+        self.thread.start()
 
     def add(self, audio_bytes):
-        self.audio_queue.put(audio_bytes)
+        if audio_bytes:
+            self.audio_queue.put(audio_bytes)
 
     def stop(self):
-        print("🛑 Interrupt triggered")
+        print("Interrupt triggered")
+
         self.stop_flag = True
 
         while not self.audio_queue.empty():
-            self.audio_queue.get()
+            try:
+                self.audio_queue.get_nowait()
+            except queue.Empty:
+                break
 
         if self.current_play:
             self.current_play.stop()
 
+    def shutdown(self):
+        """Graceful shutdown"""
+        print("Shutting down AudioPlayer...")
+        self.running = False
+
+        self.audio_queue.put(None)
+
+        if self.thread:
+            self.thread.join()
+
     def _play_loop(self):
-        while True:
-            audio = self.audio_queue.get()
+        while self.running:
+            try:
+                audio = self.audio_queue.get(timeout=1)
 
-            if self.stop_flag:
-                self.stop_flag = False
-                continue
+                if audio is None:
+                    continue
 
-            if audio:
+                if self.stop_flag:
+                    self.stop_flag = False
+                    continue
                 self._play(audio)
+
+            except queue.Empty:
+                continue
+            except Exception as e:
+                print("Playback loop error:", e)
 
     def _play(self, audio_bytes):
         try:

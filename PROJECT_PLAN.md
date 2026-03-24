@@ -98,10 +98,10 @@ VaaniAI/
 *Focus: Giving the agent a voice that sounds natural and plays without stutter.*
 
 - **Tasks:**
-  - [ ] Implement `src/audio/tts_engine.py` using high-quality providers (e.g., ElevenLabs, OpenAI TTS).
-  - [ ] Implement fallback to local offline TTS (`pyttsx3`) if the network drops or API quota is exhausted.
-  - [ ] Setup an audio playback buffer. As the LLM streams text, chunk it into sentences, send to TTS, and queue for playback concurrently.
-  - [ ] **Crucial Feature:** Interruptibility. If the user starts talking while the agent is speaking, instantly halt the audio playback and clear the queue.
+  - [Done] Implement `src/audio/tts_engine.py` using high-quality providers (e.g., ElevenLabs, OpenAI TTS).
+  - [Done] Implement fallback to local offline TTS (`pyttsx3`) if the network drops or API quota is exhausted.
+  - [Done] Setup an audio playback buffer. As the LLM streams text, chunk it into sentences, send to TTS, and queue for playback concurrently.
+  - [Done] **Crucial Feature:** Interruptibility. If the user starts talking while the agent is speaking, instantly halt the audio playback and clear the queue.
 - **Edge Cases Handled:**
   - TTS API takes too long to respond.
   - Playing audio crashes the main thread (fixed by threaded/async playback).
@@ -111,9 +111,9 @@ VaaniAI/
 *Focus: Tying it all together in a continuous, non-blocking loop.*
 
 - **Tasks:**
-  - [ ] Write `src/core/main.py` leveraging `asyncio` or robust multithreading.
-  - [ ] State management: `LISTENING` -> `THINKING` -> `SPEAKING`.
-  - [ ] Implement graceful shutdown. Capturing `Ctrl+C` (SIGINT) to close audio streams, save memory to disk, and exit cleanly.
+  - [Done] Write `src/core/main.py` leveraging `asyncio` or robust multithreading.
+  - [Done] State management: `LISTENING` -> `THINKING` -> `SPEAKING`.
+  - [Done] Implement graceful shutdown. Capturing `Ctrl+C` (SIGINT) to close audio streams, save memory to disk, and exit cleanly.
 - **Edge Cases Handled:**
   - Deadlocks in threading when sharing the microphone stream.
   - Unhandled exceptions in background threads silently failing.
