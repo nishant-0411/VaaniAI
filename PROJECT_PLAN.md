@@ -87,8 +87,8 @@ VaaniAI/
 - **Tasks:**
   - [Done] Create `src/intelligence/llm_client.py` using `openai` SDK or `Langchain`.
   - [Done] Implement streaming LLM responses (yielding tokens as they generate) to dramatically reduce wait times.
-  - [ ] Build `memory.py` to maintain a sliding window of recent conversation history to avoid context limit exceeded errors (Token limit management).
-  - [ ] Define system prompts that prevent the AI from generating excessively long, un-speakable text (e.g., formatting lists natively for voice).
+  - [Done] Build `memory.py` to maintain a sliding window of recent conversation history to avoid context limit exceeded errors (Token limit management).
+  - [Done] Define system prompts that prevent the AI from generating excessively long, un-speakable text (e.g., formatting lists natively for voice).
 - **Edge Cases Handled:**
   - API rate limiting (429 errors) - implementing exponential backoff (`tenacity` library).
   - User says something unsafe/filtered by the API provider.
