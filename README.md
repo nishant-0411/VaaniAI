@@ -1,62 +1,58 @@
-<h1 align="center">🎙️ VaaniAI</h1>
+<div align="center">
+  <h1>🎙️ VaaniAI</h1>
+  <p><strong>An advanced, real-time conversational AI agent that listens, thinks, and speaks naturally.</strong></p>
 
-<p align="center">
-  <strong>An AI-based conversational agent that listens, understands, and responds naturally using speech and text.</strong>
-</p>
-
-<p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.8+-blue.svg">
-  <img alt="Status" src="https://img.shields.io/badge/status-active-success.svg">
-</p>
+  <p>
+    <img alt="Python Version" src="https://img.shields.io/badge/Python-3.11+-blue.svg?logo=python&logoColor=white">
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
+    <img alt="Status" src="https://img.shields.io/badge/Status-Active-success.svg">
+  </p>
+</div>
 
 ---
 
 ## 📖 Overview
 
-**VaaniAI** is a next-generation AI talking agent designed to create seamless, natural interactions between humans and machines. By combining advanced speech recognition, large language models (LLMs), and text-to-speech technology, VaaniAI acts as an intelligent conversational assistant that you can talk to, just like a human.
+**VaaniAI** is a next-generation voice assistant designed to bridge the gap between human and machine interaction. Moving beyond simple text-based chatbots, VaaniAI provides a rich, multi-modal experience by combining state-of-the-art **Speech-to-Text (STT)**, intelligent **Large Language Models (LLMs)**, and lifelike **Text-to-Speech (TTS)**.
 
-Whether you're building a voice-controlled application, an interactive learning tool, or a personal assistant, VaaniAI provides the foundation for rich, real-time voice and text interactions.
+Whether you're looking for a vocal coding companion, a language practice partner, or the foundation for a complex smart-home system, VaaniAI delivers low-latency, context-aware, and natural dialogues.
 
-## ✨ Features
+## ✨ Key Features
 
-- **🗣️ Speech-to-Text (STT):** Highly accurate voice input processing to understand spoken commands.
-- **🧠 AI Conversation Engine:** Leverages powerful LLMs to generate context-aware, intelligent, and human-like responses.
-- **🔊 Text-to-Speech (TTS):** Natural and expressive voice output for a truly conversational experience.
-- **⚡ Real-time Interaction:** Low-latency processing ensures smooth, uninterrupted back-and-forth dialogue.
-- **⌨️ Multi-Modal Support:** Interact seamlessly via voice or text input.
-- **⚙️ Extensible Architecture:** Easily modularized to swap out different STT, LLM, or TTS engines depending on your needs.
+- **🗣️ Advanced Speech Recognition:** Seamlessly captures and transcribes spoken audio using powerful STT models (e.g., Whisper).
+- **🧠 Context-Aware Intelligence:** Integrates with OpenAI's LLMs and maintains a dynamic conversation memory, allowing for deep, continuous discussions.
+- **🔊 Expressive Voice Output:** Utilizes premium TTS services like ElevenLabs (or local alternatives) for incredibly realistic and emotive speech.
+- **⚡ Streaming Architecture:** Built for real-time interaction. Audio is captured in chunks, and responses are processed efficiently to minimize latency.
+- **⚙️ Modular & Extensible:** The architecture is decoupled into distinct intelligence, audio, and core components, making it trivial to swap or upgrade models.
 
 ## 🛠️ Tech Stack
 
-VaaniAI is built using modern and robust technologies:
+VaaniAI leverages a modern Python ecosystem:
 
-- **Language:** Python 3.8+
-- **Speech Recognition (STT):** *e.g., OpenAI Whisper, SpeechRecognition, or Google Speech API*
-- **Intelligence (LLM):** *e.g., OpenAI Models, Anthropic Claude, or local models via Llama.cpp*
-- **Text-to-Speech (TTS):** *e.g., ElevenLabs, pyttsx3, or Google TTS (gTTS)*
+- **Core & Logic:** Python 3.11+, `pyaudio` for streaming.
+- **Speech-to-Text (STT):** `speechrecognition`, `openai-whisper`.
+- **Language Intelligence (LLM):** `openai` API.
+- **Text-to-Speech (TTS):** `elevenlabs` (premium), `pyttsx3`, `gtts`.
 
-## 📂 Project Structure
+## 📂 Architecture & Structure
 
-A typical layout of the VaaniAI repository:
+The repository is modularized for clean separation of concerns:
 
 ```text
 VaaniAI/
-├── src/                  # Main source code
-│   ├── main.py           # Application entry point
-│   ├── audio_input.py    # Speech-to-Text logic
-│   ├── llm_engine.py     # AI interaction and prompt handling
-│   └── audio_output.py   # Text-to-Speech logic
-├── tests/                # Unit and integration tests
-├── requirements.txt      # Project dependencies
-├── .env.example          # Example environment variables
-├── README.md             # Project documentation (you are here)
-└── LICENSE               # License file
+├── src/
+│   ├── audio/              # STT, TTS engines, and audio I/O streaming
+│   ├── core/               # Main application loop and configurations
+│   ├── intelligence/       # LLM clients and contextual memory management
+│   └── utils/              # Helper modules (e.g., custom loggers)
+├── tests/                  # Unit and integration test suite
+├── .env                    # Environment variables (API keys)
+├── pyproject.toml          # Modern dependency management
+├── requirements.txt        # Classic dependency list
+└── README.md
 ```
 
-## 🚀 Installation
-
-Follow these steps to get VaaniAI running locally on your machine.
+## 🚀 Installation & Setup
 
 1. **Clone the repository:**
    ```bash
@@ -64,53 +60,56 @@ Follow these steps to get VaaniAI running locally on your machine.
    cd VaaniAI
    ```
 
-2. **Create a virtual environment:**
+2. **Set up a Python virtual environment (Requires Python 3.11+):**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
-3. **Install the dependencies:**
+3. **Install dependencies:**
+   Using the standard `requirements.txt`:
    ```bash
    pip install -r requirements.txt
    ```
+   *(Alternatively, you can install via `pip install .` using `pyproject.toml`)*
 
-4. **Set up environment variables:**
-   - Copy `.env.example` to `.env`.
-   - Add your necessary API keys (e.g., OpenAI, ElevenLabs) inside the `.env` file.
+4. **Configure Environment Variables:**
+   Copy the example environment file and add your API keys (e.g., OpenAI, ElevenLabs).
    ```bash
    cp .env.example .env
    ```
+   *Note: Ensure all required keys specific to your chosen LLM and TTS engines are populated.*
 
 ## 🎮 Usage
 
-To start interacting with VaaniAI, simply run the main script:
+Start interacting with the VaaniAI assistant by executing the core module from the project root:
 
 ```bash
-python src/main.py
+python -m src.core.main
 ```
 
-- **Voice Mode:** Speak into your microphone when prompted. VaaniAI will listen, process your request, and reply verbally.
-- **Text Mode:** Alternatively, you can type your queries if you prefer a silent interaction.
-- **Exit:** Say "Goodbye", type "exit", or press `Ctrl + C` to stop the agent.
+- **Listening Mode:** When the console displays `STATE: LISTENING`, simply speak into your microphone.
+- **Thinking Mode:** The AI will process the transcription and stream its thought process.
+- **Speaking Mode:** The generated response will be spoken aloud immediately.
+- **Exit:** Use `Ctrl + C` at any time to gracefully shut down the assistant.
 
-## 🔮 Future Improvements
+## 🔮 Roadmap & Future Improvements
 
-- [ ] **Wake Word Detection:** Activate the agent hands-free by saying a specific wake word (e.g., "Hey Vaani").
-- [ ] **Memory & Context Retention:** Implement vector databases (like ChromaDB or Pinecone) for long-term user memory and context across sessions.
-- [ ] **Multi-language Support:** Allow VaaniAI to converse fluently in different languages.
-- [ ] **Web/GUI Interface:** Build a sleek frontend (e.g., using Streamlit, React, or PyQt) for easier user interaction.
+- [ ] **Wake Word Detection:** Activate VaaniAI entirely hands-free (e.g., "Hey Vaani").
+- [ ] **Vector Database Memory:** Integrate ChromaDB or Pinecone for long-term, semantic memory spanning across multiple sessions.
+- [ ] **Function Calling & Tool Use:** Allow the AI to interact with external APIs, check the weather, or execute system commands.
+- [ ] **Web GUI Interface:** Develop a rich visual frontend using React or Streamlit.
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are highly encouraged! Whether it's adding a new TTS engine integration, fixing bugs, or improving documentation:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/NewAwesomeEngine`
+3. Commit your changes: `git commit -m 'Add support for NewAwesomeEngine'`
+4. Push to the branch: `git push origin feature/NewAwesomeEngine`
+5. Open a Pull Request.
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
