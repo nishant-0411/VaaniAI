@@ -10,3 +10,4 @@ sounddevice
 gTTS
 pydub # brew install ffmpeg
 asyncio
+streamlit
