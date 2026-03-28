@@ -29,6 +29,7 @@ Whether you're looking for a vocal coding companion, a language practice partner
 
 VaaniAI leverages a modern Python ecosystem:
 
+- **Frontend UI:** `streamlit` for the interactive chat and voice web interface.
 - **Core & Logic:** Python 3.11+, `pyaudio` for streaming.
 - **Speech-to-Text (STT):** `speechrecognition`, `openai-whisper`.
 - **Language Intelligence (LLM):** `openai` API.
@@ -40,6 +41,7 @@ The repository is modularized for clean separation of concerns:
 
 ```text
 VaaniAI/
+├── app.py                  # Main Streamlit web application interface
 ├── src/
 │   ├── audio/              # STT, TTS engines, and audio I/O streaming
 │   ├── core/               # Main application loop and configurations
@@ -82,10 +84,21 @@ VaaniAI/
 
 ## 🎮 Usage
 
-Start interacting with the VaaniAI assistant by executing the core module from the project root:
+You can run VaaniAI in two different ways:
+
+### 1. Web UI (Recommended)
+Start the interactive Streamlit web application from the project root:
 
 ```bash
-python -m src.core.main
+streamlit run app.py
+```
+This will automatically launch a conversational UI in your default web browser where you can chat via text or record voice messages.
+
+### 2. Terminal Mode
+Start the core terminal-based assistant:
+
+```bash
+python src/core/main.py
 ```
 
 - **Listening Mode:** When the console displays `STATE: LISTENING`, simply speak into your microphone.
@@ -98,7 +111,7 @@ python -m src.core.main
 - [ ] **Wake Word Detection:** Activate VaaniAI entirely hands-free (e.g., "Hey Vaani").
 - [ ] **Vector Database Memory:** Integrate ChromaDB or Pinecone for long-term, semantic memory spanning across multiple sessions.
 - [ ] **Function Calling & Tool Use:** Allow the AI to interact with external APIs, check the weather, or execute system commands.
-- [ ] **Web GUI Interface:** Develop a rich visual frontend using React or Streamlit.
+- [x] **Web GUI Interface:** Develop a rich visual frontend using React or Streamlit.
 
 ## 🤝 Contributing
 

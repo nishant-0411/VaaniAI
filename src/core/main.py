@@ -1,5 +1,11 @@
+import os
 import signal
 import sys
+
+# Add the project root to sys.path so that 'src' can be imported correctly
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 from src.intelligence.memory import ConversationMemory
 from src.intelligence.llm_client import LLMClient
 from src.audio.input_audio import capture_audio_streaming
